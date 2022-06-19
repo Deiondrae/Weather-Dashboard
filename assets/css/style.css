@@ -3,6 +3,9 @@
     grid-template-columns: auto auto auto auto;
     padding: 10px;
     }
+    .grid-container > div {
+        margin: 5px;
+    }
     .grid-item-1 {
     background-image: linear-gradient(to right,blue, rgb(49, 0, 128));
     grid-column-start: span 4;
@@ -16,13 +19,31 @@
     .grid-item-3 {
     grid-column-start: span 3;
     grid-row-start: span 3;
+    outline: 2px solid black;
     }
     .grid-item-4 {
     grid-column-start: span 3;
     grid-row-start: span 3;
     text-align: start;
     }
-    .search {
+    .searchBtn {
         width: 100%;
-        background-color: aqua;
+        background-color: #5aa2e9;
+        border: none;
+        border-radius: 5px;
+    }
+    input {
+        width: 100%;
+        box-sizing:border-box;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+    p {
+        font-size: 20px;
+    }
+    .historyBtn {
+        width: 100%;
+        background-color: gray;
+        border: none;
+        border-radius: 5px;
     }

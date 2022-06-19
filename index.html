@@ -12,20 +12,21 @@
         <header class="grid-item-1">
             <h1>Weather Dashboard</h1>
         </header>
-        <div class="grid-item-2">
-            <form>
+        <div class="grid-item-2" id="history">
+            <form id="search-form">
                 <h2>Search for a City:</h2>
-                <input>
+                <input id="userSearch" placeholder="Enter a City">
                 <div>
-                    <button class="search"> Search </button>
-                </div>
-                <div class="History">
-                    <ul></ul>
+                    <button type="submit" class="searchBtn"> Search </button>
                 </div>
             </form>
         </div>
-        <div class="grid-item-3">
-            Current City
+        <div class="grid-item-3" id="current-container">
+            <h2 id="currentCity"></h2>
+            <p id="currentTemp"></p>
+            <p id="currentWind"></p>
+            <p id="currentHumidity"></p>
+            <p id="currentUvindex"></p>
         </div>
         <div class="grid-item-4">
             <h2>5 day forecast:</h2>
@@ -36,6 +37,7 @@
             <div class="day5"></div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>
 </html>
