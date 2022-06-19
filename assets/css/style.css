@@ -1,0 +1,28 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 10px;
+    }
+    .grid-item-1 {
+    background-image: linear-gradient(to right,blue, rgb(49, 0, 128));
+    grid-column-start: span 4;
+    text-align: center;
+    color: white;
+    }
+    .grid-item-2 {
+    grid-row-start: span 6;
+    text-align: start;
+    }
+    .grid-item-3 {
+    grid-column-start: span 3;
+    grid-row-start: span 3;
+    }
+    .grid-item-4 {
+    grid-column-start: span 3;
+    grid-row-start: span 3;
+    text-align: start;
+    }
+    .search {
+        width: 100%;
+        background-color: aqua;
+    }
