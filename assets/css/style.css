@@ -13,37 +13,65 @@
     color: white;
     }
     .grid-item-2 {
-    grid-row-start: span 6;
+    grid-row-start: span 4;
     text-align: start;
     }
     .grid-item-3 {
     grid-column-start: span 3;
-    grid-row-start: span 3;
+    grid-row-start: span 2;
     outline: 2px solid black;
     }
     .grid-item-4 {
     grid-column-start: span 3;
-    grid-row-start: span 3;
+    grid-row-start: span 2;
     text-align: start;
     }
-    .searchBtn {
+.searchBtn {
         width: 100%;
         background-color: #5aa2e9;
         border: none;
         border-radius: 5px;
     }
-    input {
+input {
         width: 100%;
         box-sizing:border-box;
         margin-bottom: 5px;
         border-radius: 5px;
     }
-    p {
+p {
         font-size: 20px;
     }
-    .historyBtn {
+.historyBtn {
         width: 100%;
         background-color: gray;
         border: none;
         border-radius: 5px;
     }
+.five-day-container {
+    display: grid;
+}
+    .five-day-container-title {
+        grid-column-start: span 5;
+    }
+
+.card {
+    background-color: #33475a;
+    margin: 0 10px; 
+    color: white;
+}
+
+.green {
+    color: green;
+}
+.yellow {
+    color: yellow;
+}
+.red {
+    color: red;
+}
+.orange {
+    color: orange;
+}
+.purple {
+    color: purple;
+}
