@@ -1,6 +1,4 @@
 const apiKey = "ad5cf6c137508191f6fa6359d025a03e";
-// const city = document.getElementbyId("userSearch").value.trim()
-// const city = "toronto";
 const searchFormEl = document.querySelector("#search-form");
 const seachInputEl = document.querySelector("#userSearch");
 const searchList = document.querySelector("#history");
@@ -12,7 +10,7 @@ const currentWindEl = document.getElementById("currentWind");
 const currentHumidityEl = document.getElementById("currentHumidity");
 const currentUvIndexEl = document.getElementById("currentUvindex");
 
-
+// search openWeather api by city name and to get lat and lon coords
 var getCityCoordinates = function(city, apiKey) {
     var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
 
@@ -24,7 +22,7 @@ var getCityCoordinates = function(city, apiKey) {
         });
     }); 
 };
-
+//search openWeather api with lat and lon to return weather data
 var getCityWeather = function(lat, lon, city){
     var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly,alerts&appid=" + apiKey + "&units=metric";
 
@@ -34,7 +32,7 @@ var getCityWeather = function(lat, lon, city){
         });
     });
 };
-
+//Take city name from form field, give to getCityCoordinates and Search history functions, let user know if search is empty
 var formSubmitHandler = function(event) {
     event.preventDefault();
     var city = seachInputEl.value.trim();
@@ -47,10 +45,10 @@ var formSubmitHandler = function(event) {
         alert("Please enter a city");
     }
 }
+//take json data display on page in current weather div 
 var displayCurrentWeather = function(weather, city){
     var weatherIcon = weather.current.weather[0].icon
     
-
     var currentCityName = city
     var fiveDayWeather = weather.daily
     
@@ -68,7 +66,7 @@ var displayCurrentWeather = function(weather, city){
     
     currentHumidityEl.textContent = "Humidity: " + weather.current.humidity + " %"
     
-    
+    //add colours to text based on UVI
     currentUvIndexEl.textContent = "UV Index: " + weather.current.uvi
     if (weather.current.uvi < 2) {
         currentUvIndexEl.classList.add("green")
@@ -85,6 +83,7 @@ var displayCurrentWeather = function(weather, city){
     currentCityEl.appendChild(currentIcon)
     fivedayForecast(fiveDayWeather)
 }
+//Add recently searched cities to list of clickable buttons that repopulate the corresponding weather info
 var searchHistory = function(city) {
     var searchTerm = city;
     var searchHistoryBtn = document.createElement("button");
@@ -94,6 +93,7 @@ var searchHistory = function(city) {
     searchList.appendChild(searchHistoryBtn);
     searchHistoryBtn.addEventListener("click", () => {getCityCoordinates(searchTerm, apiKey)})
 }
+//check if 5 forecast cards already exist, if they do, remove them and replace with appropriate cards for current city
 var fivedayForecast = function(weather) {
     forecastCards = document.querySelectorAll(".card")
     forecastArr = Array.from(forecastCards)
@@ -133,5 +133,6 @@ var fivedayForecast = function(weather) {
         };
     };
 
+//submit function for submit button
 searchFormEl.addEventListener("submit", formSubmitHandler)
 
